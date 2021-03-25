@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vanilla Dice</title>
+        <link href="styles.css" rel="stylesheet"> 
+        <script defer src="js/scripts.js"></script>
+    </head>
+    <body>
+        <header>    
+            <h1 id="top">Vanilla Dice
+                <span id="reset-button">Dice Reset</span>
+            </h1>
+        </header>   
+            <main>
+                <article> 
+                    <div class="grid-box">
+                        <div class="first-grid-position">
+                            <div id="dice1" class="dice" onclick="clickHighlight(diceOne)">           
+                                <img class="face0" src="img/small-dice/face1.svg">
+                            </div>
+                        </div>
+                        <div class="second-grid-position">
+                            <div id="dice2"  class="dice"  onclick="clickHighlight(diceTwo)" >           
+                                <img class="face1" src="img/small-dice/face2.svg">
+                            </div>
+                        </div>
+                        <div class="third-grid-position">    
+                            <div id="dice3"  class="dice" onclick="clickHighlight(diceThree)" >           
+                                <img class="face2" src="img/small-dice/face3.svg">
+                            </div>
+                        </div>
+                        <div class="fourth-grid-position"> 
+                            <div id="dice4" class="dice"  onclick="clickHighlight(diceFour)" >           
+                                <img class="face3" src="img/small-dice/face4.svg">
+                            </div>
+                        </div>
+                        <div class="fifth-grid-position">
+                            <div id="dice5"  class="dice" onclick="clickHighlight(diceFive)">           
+                                <img class="face4" src="img/small-dice/face5.svg">
+                            </div>
+                        </div>
+                        
+                        <div class="sixth-grid-position">
+                            <div id="dice6"  class="dice" onclick="clickHighlight(diceSix)">           
+                                <img class="face5" src="img/small-dice/face6.svg">
+                            </div>
+                        </div>
+                    <div class="seventh-grid-position">
+                        <button 
+                            type="button"
+                            id="roll-button" 
+                            class="button"
+                        >
+                        Roll Dice
+                        </button>
+                        <button 
+                            type="button"
+                            id="rule-button" 
+                            class="button"
+                        >
+                        Score Rules
+                        </button>
+                    </div>
+                    <div class="hide"></div>
+                    <div class="eighth-grid-position">
+                        <h3>Enter Score: </h3>
+                        <div id="roll-score">
+                        <input 
+                            type="text" 
+                            id="score-input" 
+                            placeholder="Enter Score" 
+                            value="0" 
+                            name="scorebox"
+                        >
+                        <button 
+                            type="button" 
+                            id="score-submit" 
+                            class="button" 
+                        >
+                        Bank Score 
+                        </button> 
+                    </div>
+                </div>
+            </div>
+            </article>
+            <section id="rule-box" class="hide">
+                <div>
+                <h3><u>Rules</u></h3>
+                    <ul>
+                        <li>Begin by rolling six dice.</li>
+                        <li>To start, first bank at least 1000 points.</li>
+                        <li>After, player can end turn and bank points at any time.</li> 
+                        <li>Each roll, the player must keep at least one scoring dice.</li>
+                        <li>Turn ends when points are banked or no dice score.</li>
+                        <li>If all six dice score, roll all dice again.</li>
+                        <li>Dice multiples do not carry over to new six dice roll.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3><u>Scoring</u></h3>
+                    <ul>
+                        <li>One = 100</li>
+                        <li>Five = 50</li>
+                        <li>Triple Ones = 1000</li>
+                        <li>Additional Ones After 3 =  + 1000</li>
+                    </ul>
+                    <ul>
+                        <li>Other Triples = # X 100</li>
+                        <li>Same # after = + (# X 100)</li>
+                        <li>Three pairs = 1000</li>
+                        <li>Straight = 1500</li>
+                    </ul>
+                </div>
+            </section>
+            <article>
+                <div id="player-score-container">
+                    <div class="inert-player">
+                        <button 
+                            type="button"
+                            class="small-button"
+                            id="add-player-button" 
+                            >
+                            + 
+                        </button>    
+                        <h3 id="title">PLAYERS</h3>      
+                    </div>
+                    <div class="active-player" id="player-name-1">
+                        <h3 id="player1">Player1</h3>
+                        <h3 id="p1-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-2">
+                        <h3 id="player2">Player2</h3>
+                        <h3 id="p2-points">0</h3>   
+                    </div>
+                    <div class="inert-player" id="player-name-3">
+                        <h3 id="player3">Player3</h3>
+                        <h3 id="p3-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-4">
+                        <h3 id="player4">Player4</h3>
+                        <h3 id="p4-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-5">
+                        <h3 id="player5">Player5</h3>
+                        <h3 id="p5-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-6">
+                        <h3 id="player6">Player6</h3>
+                        <h3 id="p6-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-7">
+                        <h3 id="player7">Player7</h3>
+                        <h3 id="p7-points">0</h3>
+                    </div>
+                    <div class="inert-player" id="player-name-8">
+                        <h3 id="player8">Player8</h3>
+                        <h3 id="p8-points">0</h3>
+                    </div>
+                </div> 
+            </article>
+        </main>
+        <section class="background">
+            <p id="display-box"></p>
+        </section>
+        <h3 class="to-top"><a href="#top">Back to top</a></h3>
+        <div id="app" class="background">
+            <h2 id="ityped"></h2>
+          </div>
+          <script src="js/ityped/dist/index.js"></script>
+          <script>
+            ityped.init(document.querySelector("#ityped"), {
+              showCursor: false,
+              strings: [
+                "Ice, ice baby",
+                "Alright stop, collaborate and listen, Ice is back with my brand new invention",
+                "Something grabs a hold of me tightly, Flow like a harpoon daily and nightly",
+                "Will it ever stop? Yo, I don't know. Turn off the lights, and I'll glow",
+                "To the extreme, I rock a mic like a vandal. Light up a stage and wax a chump like a candle",
+                "Dance, go rush to the speaker that booms. I'm killing your brain like a poisonous mushroom",
+                "Deadly, when I play a dope melody, Anything less than the best is a felony",
+                "Love it or leave it, you better gangway. You better hit bull's eye, the kid don't play",
+                "If there was a problem, yo, I'll solve it. Check out the hook while my DJ revolves it",
+                "Vanilla Ice, ice baby",
+                "Now that the party is jumping. With the bass kicked in, and the Vegas are pumping",
+                "Quick to the point, to the point, no faking, Cooking MCs like a pound of bacon",
+                "Burning them, if you ain't quick and nimble. I go crazy when I hear a cymbal",
+                "And a hi-hat with a souped up tempo, I'm on a roll, it's time to go solo",
+                "Rollin' in my 5.0, With my rag-top down so my hair can blow",
+                'The girlies on standby, waving just to say "Hi" "Did you stop?" "No, I just drove by"',
+                "Kept on, pursuing to the next stop I busted a left, and I'm heading to the next block",
+                "The block was dead, yo So I continued to A1A Beachfront Avenue",
+                "Girls were hot wearing less than bikinis Rockman lovers driving Lamborghinis",
+                "Jealous, 'cause I'm out getting mine Shay with a gauge, and Vanilla with a nine",
+                "Ready for the chumps on the wall The chumps acting ill because they're full of eight ball",
+                "Gunshots rang out like a bell I grabbed my nine, all I heard were shells",
+                "Falling on the concrete real fast Jumped in my car, slammed on the gas",
+                "Bumper to bumper, the avenue's packed I'm trying to get away before the jackers jack",
+                "Police on the scene, you know what I mean They passed me up, confronted all the dope fiends",
+                "Take heed cause I'm a lyrical poet Miami's on the scene, just in case you didn't know it",
+                "My town, that created all the bass sound nough to shake and kick holes in the ground",
+                "'Cause my style's like a chemical spill Feasible rhymes that you can vision and feel",
+                "Conducted and formed, this is a hell of a concept We make it hype, and you want to step",
+                "With this, Shay plays on the fade Slice like a ninja, cut like a razor blade",
+                'So fast, other DJs say "Damn!" If my rhyme was a drug, Id sell it by the gram',
+                "Keep my composure, when it's time to get loose Magnetized by the mic while I kick my juice",
+                "If there was a problem, yo, I'll solve it Check out the hook while my DJ revolves it",
+                "Yo man, let's get out of here Word to your mother",
+                "Ice, ice baby, too cold Ice, Ice Baby, too Cold, too Cold Ice, Ice Baby, too Cold,", 
+                "too Cold Ice, Ice baby, too cold, too cold"
+              ]  
+        })
+          </script>
+    </body>
+</html>
