@@ -1,18 +1,32 @@
 # Vanilla Dice
 
-### A dice roller designed to share a game of dice with friends. There are six dice total. To roll a lesser number of dice, click to highlight the dice you do not want to roll.
-
 > Project includes a README file that explains the following:
 A one paragraph or longer description of what your project is
-Which 3+ features you have included from the below lists to meet the requirements
-If needed, any special instructions required for the reviewer to run your project
-The readme should be called readme.md or readme.txt and located in the top level of your project folder so that GitHub automatically displays it when viewing your project on GitHub
-Choose at least 1 item on the CSS Features List below and implement it in your project
-Choose at least 1 item off the list of JavaScript Features List below and implement it in your project
-Choose at least 1 additional item from any of the lists below and implement it in your project
-We recommend you pick a 4th item (or more!) to add, just in case something goes wrong with one of your other items - 3 is only the minimum requirement
+### A dice roller designed to share a game of dice with friends. There are six dice total. To roll a lesser number of dice, click to highlight the dice you do not want to roll. Then click the "Roll Dice" button. Suggested Rules are displayed when the "Score Rules" button in clicked.
+***
+
+The inspiration for this project came from playing dice with my family over Zoom. We did it, but it was difficult. Everyone had to have a set of six dice to play and it was hard to roll in a way everyone could see. With this site. no physical dice are needed and everyone can display their own set of dice.
+
+<p>The dice are styled so that each dice face is a set color. This makes matching numbers easier to spot.</p> 
+<img src="img/small-dice/face1.svg" style= "width: 50px; display: inline;">
+<img src="img/small-dice/face2.svg" style= "width: 50px; display: inline;">
+<img src="img/small-dice/face3.svg" style= "width: 50px; display: inline;">
+<img src="img/small-dice/face4.svg" style= "width: 50px; display: inline;">
+<img src="img/small-dice/face5.svg" style= "width: 50px; display: inline;">
+<img src="img/small-dice/face6.svg" style= "width: 50px; display: inline;">
+<p>This is an advantage over typical monochromatic physical dice. One of the aspects I miss about physical dice is the suspense in rolling, a computer is just too fast. If you have any suggestions on fun ways to add suspense, I'd love to hear them!</p>
+
+
+
+>Which 3+ features you have included from the below lists to meet the requirements
+
+>If needed, any special instructions required for the reviewer to run your project
+
+>The readme should be called readme.md or readme.txt and located in the top level of your project folder so that GitHub automatically displays it when viewing your project on GitHub
+
 
 ## CSS Features
+>Choose at least 1 item on the CSS Features List below and implement it in your project
 1. ### CSS Grid 
 
 > Use CSS Grid to organize content areas based on mobile or desktop views. Simply applying a basic flex property so that text wraps as you change screen sizes does not count. You must actually rearrange content or perform some more advanced feature. For example, swapping from a single column layout to a two-column layout on desktop.
@@ -29,6 +43,7 @@ We recommend you pick a 4th item (or more!) to add, just in case something goes 
 
 
 ## Javascript Features
+>Choose at least 1 item off the list of JavaScript Features List below and implement it in your project
 
 1. ### Create a form, validate at least one field, and then use that information on your page somehow.
 
