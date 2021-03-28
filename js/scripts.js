@@ -32,21 +32,6 @@ function rollDice () {
         };
     };
 };
-// Highlights dice on click ----------------------
-
-const diceOne = "dice1";
-const diceTwo = "dice2";
-const diceThree = "dice3";
-const diceFour = "dice4";
-const diceFive = "dice5";
-const diceSix = "dice6";
-
-function clickHighlight(diceOne) {
-    if (document.getElementById(diceOne).className === "dice") {
-        document.getElementById(diceOne).setAttribute("class","highlight"); 
-    } else {document.getElementById(diceOne).setAttribute("class", "dice");
-    };
-};
 
 // Submits score to player ----------------------
 let totalPointsBox = 1;
@@ -77,16 +62,23 @@ function submitScore() {
     document.getElementById("score-input").value = 0;
 };
 // Displays Song Lyrics
-let chorus = 
+let vanillaChorus = 
 [
     "Ice, Ice Baby",
     "Vanilla Ice, Ice Baby",
     "Vanilla Ice, Ice Baby",
     "Vanilla Ice, Ice Baby",
     "Vanilla"
-]
+];
 
-let songLyrics = 
+let bowieChorus = 
+[ 
+    "Insanity laughs under pressure, we're breaking",
+    "Can't we give ourselves one more chance?",
+    "Why can't we give love that one more chance?",
+];
+
+let vanillaLyrics = 
 [
     "Ice, ice baby",
     "Alright stop, collaborate and listen, Ice is back with my brand new invention",
@@ -126,12 +118,74 @@ let songLyrics =
     "too Cold Ice, Ice baby, too cold, too cold"
 ];
 
+let bowieLyrics = 
+[
+    "Pressure, pushing down on me. Pressing down on you, no man ask for",
+    "Under pressure, that burns a building down. Splits a family in two",
+    "Puts people on streets",
+    "Um ba ba be. Um ba ba be",
+    "De day daa. Ee day daa- that's okay!",
+    "It's the terror of knowing what this world is about. Watching some good friends screaming let me out",
+    "Pray tomorrow gets me higher",
+    "Pressure on people, people on streets...Day da da...ba da da ba da. Okay!",
+    "Chipping around, kick my brains around the floor",
+    "These are the days it never rains but it pours",
+    "People on streets. Um ba de ba day.", 
+    "People on streets. Um ba de da de da de da de da",
+    "It's the terror of knowing what this world is about. Watching some good friends screaming let me out",
+    "Pray tomorrow gets me higher, high, hiigghh",
+    "Pressure on people, people on streets",
+    "Turned away from it all like a blind man.", 
+    "Sat on a fence, but it don't work",
+    "Keep coming up with love, but it's so slashed and torn",
+    "Why, why, whyyyyyyyyyyy? Love, love, love, love",
+    "Insanity laughs under pressure, we're breaking",
+    "Can't we give ourselves one more chance?",
+    "Why can't we give love that one more chance?",
+    "Why can't we give love, give love, give love, give love",
+    "Give love, give love, give love, give love, give love?",
+    "Cause love's such an old-fashioned word",
+    "And love dares you to care for, the people on the (People on streets) edge of the night",
+    "And love (People on streets) dares you to change our way of caring about ourselves",
+    "This is our last dance. This is our last dance",
+    "This is ourselves, Under pressure, Under pressure,"
+];
 
 function refreshlyrics () {
     var lineRandom = Math.floor(Math.random() * songLyrics.length);
     document.getElementById("display-box").innerHTML= (songLyrics[lineRandom] + " . " + chorus).toString().toUpperCase();
 };
-refreshlyrics();
+
+// Highlights dice on click ----------------------
+
+const diceOne = "dice1";
+const diceTwo = "dice2";
+const diceThree = "dice3";
+const diceFour = "dice4";
+const diceFive = "dice5";
+const diceSix = "dice6";
+
+function clickHighlight(diceOne) {
+    if (document.getElementById(diceOne).className === "dice") {
+        document.getElementById(diceOne).setAttribute("class","highlight");
+        songLyrics = vanillaLyrics; 
+    } else {document.getElementById(diceOne).setAttribute("class", "dice");
+    };
+
+    if (document.getElementsByClassName('highlight').length === 5) {
+        document.getElementById('body').setAttribute('class',"pressure-mode");
+        document.getElementById('top').innerHTML = "Under Pressure Dice";
+        songLyrics = bowieLyrics;
+        chorus = bowieChorus;
+        refreshlyrics;
+    } else {
+        document.getElementById('body').setAttribute('class','');
+        document.getElementById('top').innerHTML = "Vanilla Dice";
+        songLyrics = vanillaLyrics;
+        chorus = vanillaChorus; 
+    };
+};
+
 // Create highlighter reset button --------------------------------------------
 
 function resetDice() {

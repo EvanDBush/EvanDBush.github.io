@@ -1,13 +1,9 @@
 
 /* Type Selectors ------------------------------ */
 
-html {
-    background: linear-gradient(to bottom, #603e21 20%, #ffbc85, #603e21 95%);
-} 
-
-
 
 body {
+    background: linear-gradient(to bottom, #603e21 20%, #ffbc85, #603e21 95%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ffe4a3;
     box-sizing: border-box;
@@ -56,7 +52,7 @@ a {
     color: #cc9263;
 }
 
-/* ID Selectors ----------------------------- */
+
 
 /* Class Selectors --------------------------- */
 
@@ -163,8 +159,88 @@ a {
     font-weight: bolder;
 }
 
-a {
-    color: #cc9263;
+.pressure-mode {
+    background: linear-gradient(#9725a5, #fd8ec5);
+}
+
+.pressure-mode .highlight {
+    border: thick solid #f8cce2;
+}
+
+.pressure-mode h1 {
+    color: #fd8ec5;
+    text-shadow: 5px -5px 5px #420690;
+}
+
+.pressure-mode .inert-player {
+    background-color: #ff69b4;
+    color: #420690;
+    border: medium solid #420690;
+}
+
+.pressure-mode .active-player {
+    background-color: #ff69b4;
+    border: medium solid #f8cce2;
+}
+
+.pressure-mode .button {
+    background: #ff69b4;
+    color: #420690;
+    border: medium solid #420690;
+}
+
+.pressure-mode .small-button{
+    color: #fd8ec5;
+    background: #ff69b4;
+}
+
+.pressure-mode .background {
+    color: #f8cce2;
+}
+
+.pressure-mode a {
+    color: #f8cce2;
+}
+
+.pressure-mode #score-input {
+    background: #420690;
+    color: #ff69b4; 
+}
+
+.pressure-mode #rule-box {
+    color: #420690;
+    background: radial-gradient( #ff69b4, #9725a5);
+    border: thick solid #420690;
+}
+
+.pressure-mode a:link {
+    color: #fd8ec5 ;
+}
+
+.pressure-mode a:hover {
+    color: #420690;
+}
+
+.pressure-mode .button:hover {
+    background: #420690;
+    color: #ff69b4;
+}
+
+.pressure-mode .dice:hover {
+    border: thick solid #fd8ec5;
+    transform: scale(1.1);
+    border-radius: 15px;
+}
+
+.pressure-mode .highlight:hover {
+    border: thick solid #f8cce2;
+    transform: scale(1.1);
+    border-radius: 15px;
+}
+
+.pressure-mode .inert-player:nth-of-type(2n) {
+    background-color: #bc2dcf;
+    color: #420690;
 }
 
 
@@ -202,6 +278,10 @@ a {
     border-radius: 15px;
     font-weight: bolder;
     padding: 1%;
+}
+
+#ityped {
+    min-height: 3em;
 }
 
 /* Pseudo-class Selectors ------------------------------- */
