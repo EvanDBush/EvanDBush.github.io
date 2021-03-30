@@ -1,12 +1,10 @@
-
 /* Type Selectors ------------------------------ */
 
-
 body {
+    box-sizing: border-box;
     background: linear-gradient(to bottom, #603e21 20%, #ffbc85, #603e21 95%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #ffe4a3;
-    box-sizing: border-box;
 }
 
 h1 {
@@ -35,24 +33,27 @@ img {
 h3 {
     display:inline;
     width: 50%;
-    text-align: center;
     padding: 2px 5px 2px 5px;;
     border-radius: 15px;
+    text-align: center;
+}
+
+li img {
+    position: relative;
+    top: 10px;
 }
 
 span {
     display: inline-block;
-    font-size: .4em;
-    border: solid thin #f8d6ba;
     padding: 2px;
+    border: solid thin #f8d6ba;
     border-radius: 5px;
+    font-size: .6em;
 }
 
 a {
     color: #cc9263;
 }
-
-
 
 /* Class Selectors --------------------------- */
 
@@ -109,9 +110,9 @@ a {
     padding: 2px;
     margin: 15px 15px 15px 15px;
     background-color: #603e21;
-    color: #cc9263;
     border: medium solid #241401;
     border-radius: 15px;
+    color: #cc9263;
 }
 
 .active-player {
@@ -131,32 +132,31 @@ a {
 }
 
 .button {
-    background: #603e21;
     width: 90%;
-    
-    color: #ffbc85;
-    font-size: 20px;
-    font-weight: bold;	
     border: medium solid #ffbc85;
     border-radius: 15px;
     padding: 10px 10px 10px 10px;
-    margin: 5px 10px 5px 10px;      
+    margin: 5px 10px 5px 10px; 
+    background: #603e21;
+    color: #ffbc85;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .small-button {
-    border-radius: 50%;
     width: 40px;
     height: 40px;
-    font-size: 30px;
-    color: #ffbc85;
     background: #603e21;
+    border-radius: 50%;
+    font-size: 1em;
+    color: #ffbc85;
 }
 
 .background {
     padding-top: 5%;
-    opacity: 90%;
-    color: #cc9263;
     font-weight: bolder;
+    color: #cc9263;
+    opacity: 90%;
 }
 
 .pressure-mode {
@@ -174,8 +174,8 @@ a {
 
 .pressure-mode .inert-player {
     background-color: #ff69b4;
-    color: #420690;
     border: medium solid #420690;
+    color: #420690;
 }
 
 .pressure-mode .active-player {
@@ -185,13 +185,13 @@ a {
 
 .pressure-mode .button {
     background: #ff69b4;
-    color: #420690;
     border: medium solid #420690;
+    color: #420690;
 }
 
 .pressure-mode .small-button{
-    color: #fd8ec5;
     background: #ff69b4;
+    color: #fd8ec5;
 }
 
 .pressure-mode .background {
@@ -208,9 +208,9 @@ a {
 }
 
 .pressure-mode #rule-box {
-    color: #420690;
     background: radial-gradient( #ff69b4, #9725a5);
     border: thick solid #420690;
+    color: #420690;
 }
 
 .pressure-mode a:link {
@@ -243,7 +243,6 @@ a {
     color: #420690;
 }
 
-
 /*  Id Selectors ---------------------------------- */
 
 #player-score-container {
@@ -255,10 +254,10 @@ a {
 }
 
 #score-input {
-    line-height: 2.5em;
-    border-radius: 15px;
     align-content: center;
     background: #ffe4a3;
+    border-radius: 15px;
+    line-height: 2.5em;
     font-weight: bolder;
     font-size: .8em;
     color: #603e21; 
@@ -270,19 +269,14 @@ a {
 
 #rule-box {
     min-width: 300px;
-    border-radius: 15px;
-    padding: 3%;
-    color: #ffe4a3;
-    background: linear-gradient(to bottom, #603e21 30%, #cc9263, #603e21 95%);
+    padding: 1%;
+    background: #cc9263;
     border: thick solid #ffe4a3;
     border-radius: 15px;
     font-weight: bolder;
-    padding: 1%;
+    color: #ffe4a3;
 }
 
-#ityped {
-    min-height: 3em;
-}
 
 /* Pseudo-class Selectors ------------------------------- */
 
@@ -301,14 +295,14 @@ a:hover {
 
 .dice:hover {
     border: thick solid #ffbc85;
-    transform: scale(1.1);
     border-radius: 15px;
+    transform: scale(1.1);
 }
 
 .highlight:hover {
     border: thick solid #ffe4a3;
-    transform: scale(1.1);
     border-radius: 15px;
+    transform: scale(1.1);
 }
 
 .inert-player:nth-of-type(2n) {
@@ -356,16 +350,15 @@ a:hover {
         flex-basis: auto ;
         min-width: 150px;
     }
-    
 
     #rule-box {
-        margin: 5%;
+        order: 1;
+        padding: 2%;
+        margin: 2%;
         background-color: #cc9263;
         border: thick solid #241401;
         border-radius: 15px;
         font-size: .8em;
-        padding: 2%;
-        order: 1;
     }
 }
 
@@ -397,19 +390,15 @@ a:hover {
         max-height: fit-content;
     }
 
-    div .hide {
-        display: block;
-    }
-
     .button {
-        font-size: .9em;
         width: 80%;
+        font-size: .9em;
     }
 
     .small-button {
-        border-radius: 50%;
         width: 20px;
         height: 20px;
+        border-radius: 50%;
         font-size: 15px;
         
     }
@@ -417,8 +406,8 @@ a:hover {
     .grid-box {
         display: grid;
         grid-template-columns:  155px 155px 155px;
-        column-gap: 2%;
-        row-gap: 2%;
+        column-gap: 1%;
+        row-gap: 1%;
         justify-self: left;
         justify-items: center;
         margin: 0%;
@@ -452,21 +441,19 @@ a:hover {
     #player-score-container {
         row-gap: 1%;
         font-size: 1em;
+        margin: 2%;
     }
     #rule-box {
         display: flex;
-        font-size: .9em;
+        padding: 2%;
+        margin: 2%;
+        order: 1;
         background-color: #cc9263;
         border: thick solid #241401;
         border-radius: 15px;
-        padding: 2%;
-        margin: 1%;
-        order: 1;
+        font-size: .9em;
     }
 
-    #rule-button {
-        display: none;
-    }
     .background {
         padding-top: 1%;
         margin-top: 0%;
@@ -476,34 +463,32 @@ a:hover {
     }
 }
 
-/* iTyped V.2 Styles */
-
-.ityped-cursor {
-    font-size: 1em;
-    opacity: 1;
-    -webkit-animation: blink 0.3s infinite;
-    -moz-animation: blink 0.3s infinite;
-    animation: blink 0.3s infinite;
-    animation-direction: alternate;
-  }
-
-  @keyframes blink {
-    100% {
-      opacity: 0;
+@media (min-width: 1650px) {
+    main {
+        flex-direction: row-reverse;
+        margin: 0%;
     }
-  }
 
-  @-webkit-keyframes blink {
-    100% {
-      opacity: 0;
+    article {
+        order: 2;
     }
-  }
 
-  @-moz-keyframes blink {
-    100% {
-      opacity: 0;
+    .grid-box {
+        max-width: 500px;
+        margin: 5%;
     }
-  }
+
+    #rule-box {
+        max-width: 500px;
+        order: 1;
+        margin: 2%
+    }
+
+    #player-score-container {
+        max-width: 500px;
+        
+    }
+}
 
 /* Color Pallet --------------------------------------- */
 

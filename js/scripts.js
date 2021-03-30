@@ -20,9 +20,7 @@ function addPlayers () {
 //  Assigns dice SVGs to Array of Random Numbers ----------------------------
 
 function rollDice () {
-
     let randomArray = [];
-    
         for (let dicePosition = 0; dicePosition < 6; dicePosition++) {
             let myRoll = Math.floor(Math.random() *6) + 1;
             randomArray.push(myRoll);
@@ -38,10 +36,7 @@ let totalPointsBox = 1;
 // if (!Number.isNaN(parsed)) {
 //  bankScore(parsed);
 //}
-
-
 function submitScore() {
-    
     const playerElement = document.getElementById("player-name-" +totalPointsBox);
     const pointsElement = document.getElementById("p" +totalPointsBox+ "-points");
     let enteredScore = parseInt(document.getElementById("score-input").value);
@@ -155,7 +150,6 @@ function refreshlyrics () {
     var lineRandom = Math.floor(Math.random() * songLyrics.length);
     document.getElementById("display-box").innerHTML= (songLyrics[lineRandom] + " . " + chorus).toString().toUpperCase();
 };
-
 // Highlights dice on click ----------------------
 
 const diceOne = "dice1";
@@ -171,7 +165,6 @@ function clickHighlight(diceOne) {
         songLyrics = vanillaLyrics; 
     } else {document.getElementById(diceOne).setAttribute("class", "dice");
     };
-
     if (document.getElementsByClassName('highlight').length === 5) {
         document.getElementById('body').setAttribute('class',"pressure-mode");
         document.getElementById('top').innerHTML = "Under Pressure Dice";
@@ -185,7 +178,6 @@ function clickHighlight(diceOne) {
         chorus = vanillaChorus; 
     };
 };
-
 // Create highlighter reset button --------------------------------------------
 
 function resetDice() {
@@ -206,7 +198,6 @@ function showRules () {
     } else {
         ruleBox.setAttribute("class", "hide")} 
 };
-
 // Event Listeners -----------------------------------
 
 document.getElementById('reset-button').addEventListener('click', () => {

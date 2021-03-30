@@ -59,7 +59,7 @@
                             id="rule-button" 
                             class="button"
                         >
-                        Score Rules
+                        Rules
                         </button>
                     </div>
                     <div class="hide"></div>
@@ -67,7 +67,7 @@
                         <h3>Enter Score: </h3>
                         <div id="roll-score">
                         <input 
-                            type="text" 
+                            type="number" 
                             id="score-input" 
                             placeholder="Enter Score" 
                             value="0" 
@@ -86,31 +86,60 @@
             </article>
             <section id="rule-box" class="hide">
                 <div>
-                <h3><u>Rules</u></h3>
-                    <ul>
-                        <li>Begin by rolling six dice.</li>
-                        <li>To start, first bank at least 1000 points.</li>
-                        <li>After, player can end turn and bank points at any time.</li> 
-                        <li>Each roll, the player must keep at least one scoring dice.</li>
-                        <li>Turn ends when points are banked or no dice score.</li>
-                        <li>If all six dice score, roll all dice again.</li>
-                        <li>Dice multiples do not carry over to new six dice roll.</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3><u>Scoring</u></h3>
-                    <ul>
-                        <li>One = 100</li>
-                        <li>Five = 50</li>
-                        <li>Triple Ones = 1000</li>
-                        <li>Additional Ones After 3 =  + 1000</li>
-                    </ul>
-                    <ul>
-                        <li>Other Triples = # X 100</li>
-                        <li>Same # after = + (# X 100)</li>
-                        <li>Three pairs = 1000</li>
-                        <li>Straight = 1500</li>
-                    </ul>
+                    <h3><u>Rules</u></h3>
+                        <ul>
+                            <li>Begin by rolling six dice.</li>
+                            <li>If no dice score, the turn is over.</li> 
+                            <li>Each roll, the player must keep at least one scoring dice.</li>
+                            <li>If all six dice score, roll all dice again.</li>
+                            <li>Dice multiples do not carry over to new six dice roll.</li>
+                            <li>Turn ends when points are banked or no dice score.</li>
+                            <li>To open, first bank at least 1000 points.</li>
+                            <li>After, player can end turn and bank points at any time.</li> 
+                            <li>Game ends one round after a player banks 10,000+ points.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3><u>Scoring</u></h3>
+                        <ul>
+                            <li><img src="img/small-dice/face1.svg" style="width: 30px"> = 100 points</li>
+                            <li><img src="img/small-dice/face5.svg" style="width: 30px"> = 50 points</li>
+                            <li>
+                                <img src="img/small-dice/face1.svg" style="width: 30px">
+                                <img src="img/small-dice/face1.svg" style="width: 30px">
+                                <img src="img/small-dice/face1.svg" style="width: 30px"> 
+                                = 1000 points
+                            </li>
+                            <li>
+                                <img src="img/small-dice/face1.svg" style="width: 30px"> 
+                                After triples =  + 1000 points
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><img src="img/small-dice/face2.svg" style="width: 30px">
+                                <img src="img/small-dice/face2.svg" style="width: 30px">
+                                <img src="img/small-dice/face2.svg" style="width: 30px">
+                                or any triples = # X 100 points</li>
+                            <li><img src="img/small-dice/face2.svg" style="width: 30px"> 
+                                after triples = + (# X 100) points
+                            </li>
+                            <li><img src="img/small-dice/face4.svg" style="width: 30px">
+                                <img src="img/small-dice/face4.svg" style="width: 30px">
+                                <img src="img/small-dice/face2.svg" style="width: 30px">
+                                <img src="img/small-dice/face2.svg" style="width: 30px">
+                                <img src="img/small-dice/face6.svg" style="width: 30px">
+                                <img src="img/small-dice/face6.svg" style="width: 30px">
+                                or any three pairs = 1000 points</li>
+                            <li><img src="img/small-dice/face1.svg" style="width: 30px">
+                                <img src="img/small-dice/face2.svg" style="width: 30px">
+                                <img src="img/small-dice/face3.svg" style="width: 30px">
+                                <img src="img/small-dice/face4.svg" style="width: 30px"> 
+                                <img src="img/small-dice/face5.svg" style="width: 30px">
+                                <img src="img/small-dice/face6.svg" style="width: 30px">
+                                = 1500 points
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <article>
@@ -163,6 +192,10 @@
         <section class="background">
             <p id="display-box"></p>
         </section>
-        <h3 class="to-top"><a href="#top">Back to top</a></h3>
+        <h3 class="to-top">
+            <a href="#top">
+                Back to top
+            </a>
+        </h3>
     </body>
 </html>
