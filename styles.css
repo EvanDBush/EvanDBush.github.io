@@ -38,9 +38,11 @@ h3 {
     text-align: center;
 }
 
+
+
 li img {
     position: relative;
-    top: 10px;
+    top: 6px;
 }
 
 span {
@@ -148,7 +150,7 @@ a {
     height: 40px;
     background: #603e21;
     border-radius: 50%;
-    font-size: 1em;
+    font-size: 2em;
     color: #ffbc85;
 }
 
@@ -191,7 +193,7 @@ a {
 
 .pressure-mode .small-button{
     background: #ff69b4;
-    color: #fd8ec5;
+    color: #420690;
 }
 
 .pressure-mode .background {
@@ -479,7 +481,7 @@ a:hover {
     }
 
     #rule-box {
-        max-width: 500px;
+        max-width: 600px;
         order: 1;
         margin: 2%
     }

@@ -1,8 +1,12 @@
-# Vanilla Dice
+d# Vanilla Dice
 
 > Project includes a README file that explains the following:
 A one paragraph or longer description of what your project is
+<body style="width:100%>
 ### A dice game designed to share with friends. There are six dice total. To roll a lesser number of dice, click to highlight the dice you do not want to roll. Then click the "Roll Dice" button. Suggested Rules are displayed when the "Rules" button in clicked.
+
+<img src="img/views/rules-box-full-view.png">
+
 ***
 Please try out the game at <a href="https://evandbush.github.io/">my project's Github site!</a>
 ***
@@ -16,12 +20,29 @@ The inspiration for this project came from playing dice with my family over Zoom
 <p>This is an advantage over typical monochromatic physical dice. One of the aspects I miss about physical dice is the suspense in rolling, a computer is just too fast. If you have any suggestions on fun ways to add suspense, I'd love to hear them!</p>
 
 
->Which 3+ features you have included from the below lists to meet the requirements
+<div style = "height: 25vh; margin: 5%">
+    <div style="float: left;">
+        <u>CSS Features</u>
+        <ol>
+            <li>CSS Grid</li>
+            <li>CSS Flexbox</li>
+            <li>:nth-of-type</li>
+        </ol>
+    </div>
+    <div style="float: right;">
+        <u>JavaScript Features</u>
+        <ol>
+            <li>Submit form, display</li>
+            <li>Perform Math function, display</li>
+            <li>Create Array and populate, display</li>
+            <li>Create JavaScript loop, display</li>
+            <li>Show/Hide content elements.</li>
+        </ol>
+    </div>
+</div>
 
->If needed, any special instructions required for the reviewer to run your project
-
->The readme should be called readme.md or readme.txt and located in the top level of your project folder so that GitHub automatically displays it when viewing your project on GitHub
-
+****
+****
 
 ## CSS Features
 >Choose at least 1 item on the CSS Features List below and implement it in your project
@@ -111,6 +132,7 @@ main {
     padding: 2%;
 }
 ```
+<img src="img/views/ipad-vertical-view.png">
 As space becomes available, the player score container comes up to the same line as the dice. The flex direction is changed to row reverse to keep the rules displayed along the bottom. The score container is used more frequently.
 ```
 main {
@@ -126,12 +148,15 @@ main {
         flex-basis: auto ;
         min-width: 300px;
         max-height: fit-content;
-    }
-```
+    
+
+<img src="img/views/one-row-screen.png">
 At large screen sizes, all the content can be displayed in a single row. The order is slighly changed so that the dice remain in the center and the players-box displays on the left. Rules display on the right.
+
+
 ***
 ***
-3. #### :nth-of-tyoe
+3. #### :nth-of-type
 
 ***
 ***
@@ -177,38 +202,82 @@ Enter player name
 
 > Create a form (such as a ‘Contact Us’ form), validate at least one field (ex: email is in the correct format) and then use that information on your page somehow. For example, display it back to the user on button click, or change a setting on the page based on a section. Having a form that does nothing on clicking Submit or that just refreshes the page is not enough - you must capture the value(s) of the form and use it somehow.
 
-
+First, I created an input box to type in the score.
 
 ```
-function addPlayers () {
-    let totalPlayers = parseInt(prompt('How many players? (1-8)'));
-        for (let namePosition = 0; namePosition < totalPlayers; namePosition++) {
-            let playerName = prompt(`Enter a name for Player${namePosition + 1}`);
-            document.querySelector(`#player${namePosition + 1}`).innerHTML = playerName;
-        }; 
-        for (let namePosition = 8; namePosition > totalPlayers; namePosition= namePosition-1) {
-            document.querySelector(`#player-name-${namePosition}`).style.display = 'none';
+<div class="eighth-grid-position">
+    <h3>Enter Score: </h3>
+    <div id="roll-score">
+    <input 
+        type="number" 
+        id="score-input" 
+        placeholder="Enter Score" 
+        value="0" 
+        name="scorebox"
+    >
+    <button 
+        type="button" 
+        id="score-submit" 
+        class="button" 
+    >
+```
+The input box accepts a number as it's entry type. A value of 0 allows a quick entry of a turn with no score. If the zero is erased, the placeholder "Enter Score" appears to remind the player what the box is for. All of this helps the player enter the right value in the box.
+
+The function `submitScore()` creates two constants that target the player name and the player's points. The variable "totalPointsBox" represents the ordered position inside the players box.
+
+```
+function submitScore() {
+    const playerElement = 
+        document.getElementById("player-name-" +totalPointsBox);
+    const pointsElement = 
+        document.getElementById("p" +totalPointsBox+ "-points");
+``` 
+When the page opens, the user is prompted for the number of players; stored as `totalPlayers`. Plus one is added every time the function runs to interate through the player positions in turn. If the box position is less than the total players, the points element is updated to add the submitted score to the previous score. 
+```
+pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
+```
+
+If the points position equals the total number of players, the score is still entered and the class is changed to un-highlight player.
+
+```
+        } else {  
+            totalPointsBox = totalPlayers;
+            pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
+            playerElement.setAttribute("class", "inert-player");
+```
+
+Next, the function changes the classes of the player element differently.It still moves to the next player after score submits, but this `nextPlayer` was directed back to 1; it goes back to the player1 position `totalPointsBox = 1;`.
+            
+            totalPointsBox = 1;
+            let nextPlayer = document.getElementById("player-name-" + totalPointsBox);
+            nextPlayer.setAttribute("class", "active-player");
         };
-};
-```
+
+After every turn, the score-box resets to a value of zero.
+`document.getElementById("score-input").value = 0;`
 ***
 ***
 2. ### JavaScript mathematical function and displays.
 ***
 ***
-Get Random Number, Add score to previous score.
+> Create a JavaScript function that performs some form of mathematical operation (calculates something) and displays the result on your page or otherwise uses that value to do something on the site.
+
+This Javascript funtion calculates a random number between 1 and 6. First, a random decimal is obtained from the `Math.random()` funtion. Then, that number is multipled by 6 to give us a number with a decimal between 0 and 6. The `Math.floor()` funtion turns that number into a whole number between 0 and 5. By adding 1, a random number between 1 and 6 is produced. This corresponds easily to a dice face to display on the page.
 
 `let myRoll = Math.floor(Math.random() *6) + 1;`
 
-> Create a JavaScript function that performs some form of mathematical operation (calculates something) and displays the result on your page or otherwise uses that value to do something on the site.
+
 ***
 ***
 3. ### Create and populate a JavaScript array and display.
 ***
 ***
+> Create and populate a JavaScript array with one or more values and display the contents of some or all of the array on your page
+
+The first part of the function creates a random number (1-6) and pushes it into an array. The function repeats for each of six dice positions. 
+
 ```
 function rollDice () {
-
     let randomArray = [];
     
         for (let dicePosition = 0; dicePosition < 6; dicePosition++) {
@@ -216,26 +285,32 @@ function rollDice () {
             randomArray.push(myRoll);
 ```
 
-Array of 6 random numbers, display as Dice SVG
-
-> Create and populate a JavaScript array with one or more values and display the contents of some or all of the array on your page
+The contents of the array line up with a dice face in a .svg file.
 
 ```
-let diceSVG = 
-    `img/small-dice/face${randomArray[dicePosition]}.svg`;
-    
+let diceSVG = `img/small-dice/face${randomArray[dicePosition]}.svg`;
+```   
+After `randomArray[]` is created, the index of the array lines up with the dice positions(+1). 
+```
     if (document.getElementById(`dice${dicePosition + 1}`)
-        .className === 'dice') {
+```
+
+The dice position the function is on gets set with an SVG. It's name has the same random number given by the array.   
+
+```
             document.querySelector(`.face${dicePosition}`)
             .setAttribute('src', diceSVG);
 ```
+
 ****
 ****
 4. ### Create a Javascript loop that displays HTML.
 ****
 ****
+> Create a Javascript loop that dynamically displays HTML on your page - for example displaying a number of list items based on how many times you loop
 
-Displays player names, removes empty
+
+This function `addPlayers()` displays player names and removes empty positions above the total number of players. It loops for the number of times the starting prompt "How many players" tells it to.  
 
 ```
 function addPlayers () {
@@ -248,6 +323,10 @@ function addPlayers () {
             document.querySelector(`#player${namePosition + 1}`).innerHTML = 
             playerName;
         }; 
+```
+I created the box with 8 positions. When the total number of players is less than 8, the function removes the extra spots. This part of the function is its own loop that uses subtraction to iterate through positions and remove them.
+
+```
         for (let namePosition = 8;
             namePosition > totalPlayers; 
             namePosition= namePosition-1) {
@@ -257,12 +336,24 @@ function addPlayers () {
 };
 ```
 
-> Create a Javascript loop that dynamically displays HTML on your page - for example displaying a number of list items <li> based on how many times you loop
+<img src="img/views/six-player-game.png">
+
+
 ****
 ****
 5. ### Show/hide one or more content areas or elements.
 ****
 ****
+> Show/hide one or more content areas or elements on your site through clicking a button or some other user interaction - must be done with some JavaScript code.
+
+Because space is so limited on a mobile screen, the rules for the game are hidden behind a button on mobile views.
+
+<div>
+<img src="img/views/mobile-view.png" width="50%" style="float: left">
+<img src="img/views/rules-box-mobile.png" width="50%" style="float: right; margin-bottom: 10%;">
+</div>
+The function works by switching the class of the rule-box from show to hide- or from hide to show. Inside the class "show", display is set to "block. Inside the class "hide", display is set to "none". 
+
 ```
 let ruleBox = document.getElementById("rule-box");
 let ruleButton = document.getElementById("rule-button");
@@ -275,4 +366,14 @@ function showRules () {
 };
 ```
 
-> Show/hide one or more content areas or elements on your site through clicking a button or some other user interaction - must be done with some JavaScript code. 
+****
+
+A different color scheme is also hidden behind a button. Actually, five buttons. When five dice are held and highlighted, one dice is left to roll. This is when "pressure mode" changes the colors of the backgound and boxes.
+
+****
+Thank YOU for reading and trying the game! 
+
+A special Thanks goes out to my mentors: Shannon Beach, Brad Cypert, Dawson Richey, and Jacob Kastensmidt. Thank you very much for your time and patience!
+
+
+****

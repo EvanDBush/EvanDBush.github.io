@@ -4,58 +4,6 @@ let randomArray = [];
 var myRoll = Math.floor(Math.random() *6) + 1;
 var rollScore = 0;
 const totalPlayers = parseInt(prompt('How many players? (1-8)'));
-
-// Adds Player Names to Score grid ---------------------------------------
-
-function addPlayers () {
-    let totalPlayers = parseInt(prompt('How many players? (1-8)'));
-        for (let namePosition = 0; namePosition < totalPlayers; namePosition++) {
-            let playerName = prompt(`Enter a name for Player${namePosition + 1}`);
-            document.querySelector(`#player${namePosition + 1}`).innerHTML = playerName;
-        }; 
-        for (let namePosition = 8; namePosition > totalPlayers; namePosition= namePosition-1) {
-            document.querySelector(`#player-name-${namePosition}`).style.display = 'none';
-        };
-};
-//  Assigns dice SVGs to Array of Random Numbers ----------------------------
-
-function rollDice () {
-    let randomArray = [];
-        for (let dicePosition = 0; dicePosition < 6; dicePosition++) {
-            let myRoll = Math.floor(Math.random() *6) + 1;
-            randomArray.push(myRoll);
-            let diceSVG = `img/small-dice/face${randomArray[dicePosition]}.svg`;
-                if (document.getElementById(`dice${dicePosition + 1}`).className === 'dice') {
-                    document.querySelector(`.face${dicePosition}`).setAttribute('src', diceSVG);
-        };
-    };
-};
-
-// Submits score to player ----------------------
-let totalPointsBox = 1;
-// if (!Number.isNaN(parsed)) {
-//  bankScore(parsed);
-//}
-function submitScore() {
-    const playerElement = document.getElementById("player-name-" +totalPointsBox);
-    const pointsElement = document.getElementById("p" +totalPointsBox+ "-points");
-    let enteredScore = parseInt(document.getElementById("score-input").value);
-        if (totalPointsBox < totalPlayers) {
-            let nextPlayer = document.getElementById("player-name-" + (totalPointsBox + 1));
-            pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
-            playerElement.setAttribute("class", "inert-player");
-            nextPlayer.setAttribute("class", "active-player");
-            totalPointsBox = totalPointsBox + 1;
-        } else {  
-            totalPointsBox = totalPlayers;
-            pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
-            playerElement.setAttribute("class", "inert-player");
-            totalPointsBox = 1;
-            let nextPlayer = document.getElementById("player-name-" + totalPointsBox);
-            nextPlayer.setAttribute("class", "active-player");
-        };  
-    document.getElementById("score-input").value = 0;
-};
 // Displays Song Lyrics
 let vanillaChorus = 
 [
@@ -68,9 +16,10 @@ let vanillaChorus =
 
 let bowieChorus = 
 [ 
-    "Insanity laughs under pressure, we're breaking",
     "Can't we give ourselves one more chance?",
     "Why can't we give love that one more chance?",
+    "This is our last dance. This is our last dance",
+    "This is ourselves, Under pressure, Under pressure,"
 ];
 
 let vanillaLyrics = 
@@ -145,11 +94,69 @@ let bowieLyrics =
     "This is our last dance. This is our last dance",
     "This is ourselves, Under pressure, Under pressure,"
 ];
+var songLyrics = vanillaLyrics;
+var chorus = vanillaChorus;
+
+// Adds Player Names to Score grid ---------------------------------------
+
+function addPlayers () {
+    let totalPlayers = parseInt(prompt('How many players? (1-8)'));
+        for (let namePosition = 0; namePosition < totalPlayers; namePosition++) {
+            let playerName = prompt(`Enter a name for Player${namePosition + 1}`);
+            document.querySelector(`#player${namePosition + 1}`).innerHTML = playerName;
+        }; 
+        for (let namePosition = 8; namePosition > totalPlayers; namePosition= namePosition-1) {
+            document.querySelector(`#player-name-${namePosition}`).style.display = 'none';
+        };
+};
+//  Assigns dice SVGs to Array of Random Numbers ----------------------------
+
+function rollDice () {
+    let randomArray = [];
+        for (let dicePosition = 0; dicePosition < 6; dicePosition++) {
+            let myRoll = Math.floor(Math.random() *6) + 1;
+            randomArray.push(myRoll);
+            let diceSVG = `img/small-dice/face${randomArray[dicePosition]}.svg`;
+                if (document.getElementById(`dice${dicePosition + 1}`).className === 'dice') {
+                    document.querySelector(`.face${dicePosition}`).setAttribute('src', diceSVG);
+        };
+    };
+};
+
+// Submits score to player ----------------------
+let totalPointsBox = 1;
+// if (!Number.isNaN(parsed)) {
+//  bankScore(parsed);
+//}
+function submitScore() {
+    const playerElement = document.getElementById("player-name-" +totalPointsBox);
+    const pointsElement = document.getElementById("p" +totalPointsBox+ "-points");
+    let enteredScore = parseInt(document.getElementById("score-input").value);
+        if (totalPointsBox < totalPlayers) {
+            let nextPlayer = document.getElementById("player-name-" + (totalPointsBox + 1));
+            pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
+            playerElement.setAttribute("class", "inert-player");
+            nextPlayer.setAttribute("class", "active-player");
+            totalPointsBox = totalPointsBox + 1;
+        } else {  
+            totalPointsBox = totalPlayers;
+            pointsElement.innerHTML = enteredScore + parseInt(pointsElement.innerHTML);
+            playerElement.setAttribute("class", "inert-player");
+            totalPointsBox = 1;
+            let nextPlayer = document.getElementById("player-name-" + totalPointsBox);
+            nextPlayer.setAttribute("class", "active-player");
+        };  
+    document.getElementById("score-input").value = 0;
+};
+
+// Change song lyrics --------------------------------
 
 function refreshlyrics () {
     var lineRandom = Math.floor(Math.random() * songLyrics.length);
     document.getElementById("display-box").innerHTML= (songLyrics[lineRandom] + " . " + chorus).toString().toUpperCase();
 };
+
+
 // Highlights dice on click ----------------------
 
 const diceOne = "dice1";
@@ -170,9 +177,9 @@ function clickHighlight(diceOne) {
         document.getElementById('top').innerHTML = "Under Pressure Dice";
         songLyrics = bowieLyrics;
         chorus = bowieChorus;
-        refreshlyrics;
+        refreshlyrics();
     } else {
-        document.getElementById('body').setAttribute('class','');
+        document.getElementById('body').removeAttribute('class');
         document.getElementById('top').innerHTML = "Vanilla Dice";
         songLyrics = vanillaLyrics;
         chorus = vanillaChorus; 
@@ -198,10 +205,29 @@ function showRules () {
     } else {
         ruleBox.setAttribute("class", "hide")} 
 };
+// Toggle Pressure Mode ------------------------------
+
+function pressureMode () {
+if (document.getElementById('body').className === "pressure-mode") {
+    document.getElementById('body').setAttribute('class','');
+    document.getElementById('top').innerHTML = "Vanilla Dice";
+    document.getElementById('pressure-mode-button').innerHTML = "Pressure Mode: OFF";
+    songLyrics = vanillaLyrics;
+    chorus = vanillaChorus;
+    refreshlyrics();
+} else {
+    document.getElementById('body').setAttribute('class',"pressure-mode");
+    document.getElementById('top').innerHTML = "Under Pressure Dice";
+    document.getElementById('pressure-mode-button').innerHTML = "Pressure Mode: ON";
+    songLyrics = bowieLyrics;
+    chorus = bowieChorus;
+    refreshlyrics();
+}};
 // Event Listeners -----------------------------------
 
 document.getElementById('reset-button').addEventListener('click', () => {
     resetDice();
+    refreshlyrics();
 });
 
 document.getElementById('roll-button').addEventListener('click', () => {
@@ -222,6 +248,10 @@ document.getElementById('add-player-button').addEventListener('click', () => {
     addPlayers();
 });
 
+document.getElementById('pressure-mode-button').addEventListener('click',() => {
+    pressureMode();
+    refreshlyrics();
+});
 // document.getElementById('highlight-button').addEventListener('click', () => {
 //     resetDice;
 //});
